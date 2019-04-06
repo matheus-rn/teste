@@ -1,6 +1,6 @@
 version: "3"
 services:
-  frontt:
+  frontend:
     container_name: "frontend"
     build: ./
     command: bash -c "bash"

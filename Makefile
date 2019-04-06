@@ -6,7 +6,7 @@ build:
 
 run:
 	sudo docker-compose up -d
-	sudo docker exec -it frontend bash 
+	sudo docker exec -it frontend bash -c "yarn; bash" 
 
 down:
 	sudo docker-compose down

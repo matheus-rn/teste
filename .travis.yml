@@ -5,25 +5,20 @@ language: node_js
 node_js:
   - "10.15.3"
 
-branches:
-  - master
-
 services:
   - docker
 
-before_script:
-  - docker build -t frontend .
+stages:
+  - name: deploy docker image
+    if: branch = master
 
-script:
-  - docker run frontend npm run build
+jobs:
+  include:
+    - stage: deploy docker image
+      script: scripts/deploy_image.sh
 
-deploy:
-  - provider: script
-    script: bash scripts/deploy_image.sh
-    on:
-      branch: master
-  
 addons:
   apt:
     packages:
       - docker-ce
+

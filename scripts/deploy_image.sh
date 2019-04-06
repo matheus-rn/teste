@@ -1,10 +1,9 @@
-
 #!/bin/bash
 
 set -ev
 
 echo "Deployment init"
 
-echo "$horadahora" | docker login -u "$user" --password-stdin
-docker tag frontend horadahora/teste:latest
-docker push horadahora/teste:latest
+docker build . -t maismonitoria/frontend:latest
+docker login -p $DOCKERPASSWORD -u $DOCKERLOGIN
+docker push maismonitoria/frontend:latest  
