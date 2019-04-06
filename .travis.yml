@@ -15,7 +15,7 @@ stages:
 jobs:
   include:
     - stage: deploy docker image
-      script: scripts/deploy_image.sh
+      script: bash scripts/deploy_image.sh
 
 addons:
   apt:
